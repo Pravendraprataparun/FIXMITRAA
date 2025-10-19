@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FixMitraa — Home</title>
+  <meta name="description" content="Local home services — electricians, plumbers, carpenters and more. Book trusted professionals near you.">
+  <style>
+    /* Simple, modern CSS for a service marketplace landing page */
+    :root{
+      --accent:#0ea5a4; /* teal */
+      --dark:#0b1220;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.06);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#f8fafc 0%, #eef2f7 100%);color:var(--dark);line-height:1.45}
+    header{background:#fff;box-shadow:0 6px 18px rgba(11,18,32,0.06);position:sticky;top:0;z-index:50}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
+    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* Hero */
+    .hero{display:flex;gap:32px;align-items:center;padding:60px 0}
+    .hero-left{flex:1}
+    .kicker{display:inline-block;background:var(--glass);padding:6px 10px;border-radius:999px;color:var(--accent);font-weight:700;margin-bottom:18px}
+    h1{font-size:36px;margin:0 0 16px}
+    p.lead{color:var(--muted);margin:0 0 22px}
+    .search{display:flex;gap:8px;max-width:640px}
+    .search input{flex:1;padding:14px;border-radius:10px;border:1px solid #e6e9ef}
+    .search button{padding:12px 16px;border-radius:10px;border:0;background:var(--accent);color:#fff;font-weight:700}
+
+    .hero-right{flex:1}
+    .hero-card{background:linear-gradient(180deg,#fff,#f8fafc);border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(2,6,23,0.06)}
+    .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .service{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:#fff}
+    .service img{width:46px;height:46px;border-radius:10px;object-fit:cover}
+
+    /* Services */
+    .section{padding:56px 0}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.04)}
+    .card h3{margin:8px 0 6px}
+    .price{color:var(--accent);font-weight:800}
+
+    /* Testimonials */
+    .testimonials{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px}
+    .testimonial{min-width:260px;background:#fff;padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.04)}
+
+    /* Footer */
+    footer{background:#0b1220;color:#e6eef6;padding:40px 0}
+    footer a{color:inherit;text-decoration:none}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero{flex-direction:column}
+      h1{font-size:28px}
+      .service-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:560px){
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+      nav a{display:none}
+    }
+/* Base logo styling */
+.logo {
+  position: absolute;
+  top: 8px;
+  left: 2%;
+  z-index: 10; /* ensures it's above other elements */
+  background: transparent; /* remove any blue background */
+  border: none; /* remove border if any */
+  outline: none; /* remove any outline */
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  border: none; /* remove image borders */
+  outline: none; /* remove blue outline */
+  background: transparent; /* ensure no background behind logo */
+}
+
+/* For tablets */
+@media (max-width: 992px) {
+  .logo {
+    top: 6px;
+    left: 1.5%;
+  }
+
+  .logo-img {
+    height: 50px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 576px) {
+  .logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+    background: transparent;
+  }
+
+  .logo-img {
+    height: 40px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"><img src="images/fixmitraa-logo.png" alt="FixMitraa Logo" class="logo-img"></div>
+        <div>
+          <div style="font-size:14px;color:var(--muted)">Trusted Home Services</div>
+          <div style="font-size:16px">FixMitraa — Local Pros</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#testimonials">Reviews</a>
+        <a class="cta" href="#book">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <span class="kicker">Same-day service · Trusted pros</span>
+        <h1>Get reliable electricians, CCTV installation & setup, plumbers, carpenters, pest control, painting services, home cleaning — quickly.</h1>
+        <p class="lead">Book verified technicians near you. Transparent pricing, on-time service and post-job warranty.</p>
+        <div class="search" role="search" aria-label="Search services">
+          <input type="text" id="searchInput" placeholder="What do you need? e.g. Electrician, AC Repair" aria-label="Search service">
+          <button id="searchBtn">Find Pros</button>
+        </div>
+        <div style="margin-top:12px;color:var(--muted);font-size:14px">Or call us: <strong>+91 9236245356/8933868207</strong></div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <strong>Popular services near you</strong>
+          <div class="service-grid" style="margin-top:12px">
+            <div class="service"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="Electrician"><div><div style="font-weight:700">Electrician</div><div style="font-size:13px;color:var(--muted)">From ₹199</div></div></div>
+            <div class="service"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="Plumber"><div><div style="font-weight:700">Plumber</div><div style="font-size:13px;color:var(--muted)">From ₹249</div></div></div>
+            <div class="service"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="Carpenter"><div><div style="font-weight:700">Carpenter</div><div style="font-size:13px;color:var(--muted)">From ₹399</div></div></div>
+            <div class="service"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="AC"><div><div style="font-weight:700">AC Repair</div><div style="font-size:13px;color:var(--muted)">From ₹899</div></div></div>
+          </div>
+          <div style="margin-top:12px;font-size:13px;color:var(--muted)">All technicians background-checked & rated by customers.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+        <h2>Services we offer</h2>
+        <a href="#book" style="color:var(--accent);font-weight:700">See price list →</a>
+      </div>
+      <div class="cards">
+        
+        <article class="card">
+          <h3>Electrical Work</h3>
+          <p style="color:var(--muted);font-size:14px">Wiring, repair, switchboard, lighting installation,fan fitting,full house electrical maintenance and safety checks.</p>
+          <div style="margin-top:0px" class="price"></div><a class="cta" href="#book">Book Now</a>
+        </article>
+        <article class="card">
+          <h3>CCTV installation & Setup</h3>
+          <p style="color:var(--muted);font-size:14px">Installation of CCTV Cameras, DVR setup, wiring and remote access configuration.</p>
+          <div style="margin-top:10px" class="price"></div><a class="cta" href="#book">Book Now</a>
+        </article>
+        <article class="card">
+          <h3>Painting</h3>
+          <p style="color:var(--muted);font-size:14px">Interior & Exterior Wall painting, putty and texture finish using branded paints .</p>
+          <div style="margin-top:40px" class="price"></div><a class="cta" href="#book">Book Now</a>
+        </article>
+        <article class="card">
+          <h3>Plumbing</h3>
+          <p style="color:var(--muted);font-size:14px">Leaky taps, pipe replacement, drain cleaning & bathroom fitting.</p>
+          <div style="margin-top:60px" class="price"></div><a class="cta" href="#book">Book Now</a>
+        </article>
+        <article class="card">
+          <h3>Carpentry</h3>
+          <p style="color:var(--muted);font-size:14px">Furniture repair, custom shelves, door/window fixes and more.</p>
+          <div style="margin-top:30px" class="price"></div><a class="cta" href="#book">Book Now</a>
+        </article>
+        <article class="card">
+          <h3>Appliance Repair</h3>
+          <p style="color:var(--muted);font-size:14px">TV, fridge, washing machine, AC service and installation.</p>
+          <div style="margin-top:30px" class="price"></div><a class="cta" href="#book">Book Now</a>
+        </article>
+        <article class="card">
+          <h3>Home Cleaning</h3>
+          <p style="color:var(--muted);font-size:14px">Deep cleaning of kitchen, bathroom, sofa and complete home sanitization.</p>
+          <div style="margin-top:10px" class="price"></div><a class="cta" href="#book">Book Now</a>
+        </article>
+        <article class="card">
+          <h3>Pest Control</h3>
+          <p style="color:var(--muted);font-size:14px">Anti-termite, cockroach, rodent and mosquito control using eco-friendly chemicals.</p>
+          <div style="margin-top:10px" class="price"></div><a class="cta" href="#book">Book Now</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" class="section" style="background:transparent">
+      <h2>How it works</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px">
+        <div class="card">
+          <strong>1. Tell us what you need</strong>
+          <p style="color:var(--muted);font-size:14px">Search for a service or pick from the list and provide a brief description.</p>
+        </div>
+        <div class="card">
+          <strong>2. Choose a time & pro</strong>
+          <p style="color:var(--muted);font-size:14px">See technician profiles, ratings and fixed-price estimates.</p>
+        </div>
+        <div class="card">
+          <strong>3. Get it done</strong>
+          <p style="color:var(--muted);font-size:14px">Pay online or cash. We offer post-job warranty on most services.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section">
+      <h2>What customers say</h2>
+      <div class="testimonials" style="margin-top:12px">
+        <div class="testimonial">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:48px;height:48px;border-radius:999px;background:#eef2f7;display:grid;place-items:center">A</div>
+            <div>
+              <div style="font-weight:700">Anita Singh.</div>
+              <div style="font-size:13px;color:var(--muted)">BKT</div>
+            </div>
+          </div>
+          <p style="margin-top:10px;color:var(--muted);font-size:14px">"Quick response and the electrician fixed a wiring issue in under an hour. Fair price!"</p>
+        </div>
+
+        <div class="testimonial">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:48px;height:48px;border-radius:999px;background:#eef2f7;display:grid;place-items:center">R</div>
+            <div>
+              <div style="font-weight:700">Ravi K.</div>
+              <div style="font-size:13px;color:var(--muted)">Kapoorthala</div>
+            </div>
+          </div>
+          <p style="margin-top:10px;color:var(--muted);font-size:14px">"AC repair done perfectly. Technician wore mask and cleaned up after the job."</p>
+        </div>
+
+        <div class="testimonial">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:48px;height:48px;border-radius:999px;background:#eef2f7;display:grid;place-items:center">P</div>
+            <div>
+              <div style="font-weight:700">Pooja M.</div>
+              <div style="font-size:13px;color:var(--muted)">Aliganj</div>
+            </div>
+          </div>
+          <p style="margin-top:10px;color:var(--muted);font-size:14px">"Reliable carpentry and quick turnaround. Highly recommended."</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="book" class="section">
+      <h2>Book a technician</h2>
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px">
+        <div class="card">
+          <form id="bookingForm">
+            <label for="name">Your name</label><br>
+            <input id="name" name="name" required style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6e9ef"><br><br>
+            <label for="phone">Phone</label><br>
+            <input id="phone" name="phone" required style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6e9ef"><br><br>
+            <label for="whatsapp no">Whatsapp No</label><br>
+            <input id="whatsapp no" name="whatsapp no" required style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6e9ef"><br><br>
+            <label for="email">Email</label><br>
+            <input id="email" name="email" required style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6e9ef"><br><br>            <label for="service">Service</label><br>
+            <select id="service" name="service" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6e9ef">
+              <option>Electrician</option>
+              <option>CCTV installation & setup</option>
+              <option>Plumber</option>
+              <option>Painting Services</option>
+              <option>Home Cleaning</option>
+              <option>Pest control</option>
+              <option>Carpenter</option>
+              <option>AC Repair</option>
+            </select><br><br>
+            <label for="description">Description</label><br>
+            <textarea id="description" name="description" rows="2" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6e9ef"></textarea><br><br>
+
+            <label for="address">Address</label><br>
+            <textarea id="address" name="address" rows="3" style="width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #e6e9ef"></textarea><br><br>
+            <button type="submit" style="background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;border:0;font-weight:700">Request Service</button>
+          </form>
+        </div>
+
+        <aside class="card">
+          <h3>Why choose FixMitraa?</h3>
+          <ul style="color:var(--muted)">
+            <li>Verified technicians</li>
+            <li>Transparent pricing</li>
+            <li>Same-day service available</li>
+            <li>Post-job warranty</li>
+          </ul>
+          <div style="margin-top:14px;font-size:13px;color:var(--muted)">By booking you agree to our <a href="#">Terms</a> & <a href="#">Privacy</a>.</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;gap:24px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap">
+      <div style="max-width:420px">
+        <div style="font-weight:800">FixMitraa</div>
+        <div style="margin-top:8px;color:#9fb0bf">Reliable home-services across your city. Call: +91 9236245356/8933868207</div>
+      </div>
+      <div style="display:flex;gap:24px">
+        <div>
+          <div style="font-weight:700">Company</div>
+          <div style="margin-top:8px;color:#9fb0bf">About · Careers · Press</div>
+        </div>
+        <div>
+          <div style="font-weight:700">Support</div>
+          <div style="margin-top:8px;color:#9fb0bf">Help Center · Safety · Contact</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const scriptURL = "https://script.google.com/macros/s/AKfycby8PCKgzDo7D65MJDTFgJEmz9Be8Rrqv-mQBMoUQOe8WytBvu07CU93f1Iuxy7KMUSd/exec"; // Replace with your Apps Script URL
+    
+      try {
+        const response = await fetch(scriptURL, { method:"POST", body:formData, mode:"cors" });
+        const text = await response.text();
+        alert(text);
+        form.reset();
+      } catch (error) {
+        alert("⚠️ Network error: " + error.message);
+      }
+    });
+    </script>
+    
+    
+</body>
+</html>
