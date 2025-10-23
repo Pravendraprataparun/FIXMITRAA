@@ -346,26 +346,64 @@
     </div>
   </footer>
   <script>
-    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const form = e.target;
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById('bookingForm');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyt89jBhXuIEpg5t9qCKseTKD_rc5Zsq3hgZBty4cz-Mg1znBDTqkk4FOJ1Uw0bNS6d/exec"; // Replace with your Apps Script URL
+
+  if (localStorage.getItem("fixmitraaSubmitted")) {
+    form.innerHTML = "<p style='color:green;font-weight:600;'>✅ You’ve already submitted your request. Thank you!</p>";
+    return;
+  }
+
+  let isSubmitting = false;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    // ----- Validate Email -----
+    const emailField = form.querySelector("#email");
+    const email = emailField.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("⚠️ Please enter a valid email address.");
+      emailField.focus();
+      return; // Stop submission
+    }
+
+    isSubmitting = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
+    try {
       const formData = new FormData(form);
-      const scriptURL = "https://script.google.com/macros/s/AKfycbxcsXYlMGkIvzFi5OB-JRHwVeHJ7e4UcicLm-2V0tVKwIQf-enjXDf_WRg7i1WHnl5T/exec"; // Replace with your Apps Script URL
-    
-      try {
-        const response = await fetch(scriptURL, { method:"POST", body:formData, mode:"cors" });
-        const text = await response.text();
-        alert(text);
-        form.reset();
-      } catch (error) {
-        alert("⚠️ Network error: " + error.message);
+      const response = await fetch(scriptURL, { method: "POST", body: formData });
+
+      if (!response.ok) throw new Error("Server error");
+
+      const text = await response.text();
+      alert(text || "✅ Your response has been recorded!");
+
+      if (!text.includes("already submitted")) {
+        localStorage.setItem("fixmitraaSubmitted", "true");
       }
-    });
-    </script>
-    
+
+      form.innerHTML = "<p style='color:green;font-weight:600;'>✅ Your request has been successfully submitted!</p>";
+
+    } catch (err) {
+      alert("⚠️ Network error: " + err.message);
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Request Service";
+      isSubmitting = false;
+    }
+  });
+});
+</script>
     
 </body>
 </html>
+
 
 
 
