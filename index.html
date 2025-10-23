@@ -86,35 +86,43 @@
   background: transparent; /* ensure no background behind logo */
 }
 
-/* For tablets */
+/* For tablets and smaller screens */
 @media (max-width: 992px) {
   .logo {
-    top: 6px;
-    left: 1.5%;
-  }
-
-  .logo-img {
-    height: 50px;
-  }
-}
-
-/* For mobile devices */
-@media (max-width: 576px) {
-  .logo {
-    position: relative;
+    position: relative; /* ← change from absolute */
     top: 0;
     left: 0;
-    margin: 10px auto;
-    display: block;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* center logo */
     text-align: center;
     background: transparent;
   }
 
   .logo-img {
-    height: 40px;
+    height: 50px;
+  }
+
+  /* Make header layout vertical on small screens */
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
+/* For very small devices */
+@media (max-width: 576px) {
+  .logo-img {
+    height: 42px;
+  }
+}
   </style>
 </head>
 <body>
@@ -355,4 +363,5 @@
     
 </body>
 </html>
+
 
