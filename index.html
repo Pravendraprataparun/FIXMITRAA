@@ -350,7 +350,7 @@
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
-      const scriptURL = "https://script.google.com/macros/s/AKfycby8PCKgzDo7D65MJDTFgJEmz9Be8Rrqv-mQBMoUQOe8WytBvu07CU93f1Iuxy7KMUSd/exec"; // Replace with your Apps Script URL
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxcsXYlMGkIvzFi5OB-JRHwVeHJ7e4UcicLm-2V0tVKwIQf-enjXDf_WRg7i1WHnl5T/exec"; // Replace with your Apps Script URL
     
       try {
         const response = await fetch(scriptURL, { method:"POST", body:formData, mode:"cors" });
@@ -366,6 +366,7 @@
     
 </body>
 </html>
+
 
 
 
