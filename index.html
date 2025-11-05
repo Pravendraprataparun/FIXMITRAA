@@ -154,7 +154,17 @@
           <input type="text" id="searchInput" placeholder="What do you need? e.g. Electrician, AC Repair" aria-label="Search service">
           <button id="searchBtn">Find Pros</button>
         </div>
-        <div style="margin-top:12px;color:var(--muted);font-size:14px">Or call us: <strong>+91 9236245356/8933868207</strong></div>
+        <div style="margin-top:12px;color:var(--muted);font-size:14px"><div style="display:flex;gap:10px;flex-wrap:wrap;">
+  <a href="tel:+919236245356"
+     style="background:#0ea5a4;color:#fff;padding:10px 20px;
+            border-radius:6px;text-decoration:none;font-family:Arial, sans-serif;">
+    📞 Call: +91 9236245356
+  </a>
+  <a href="tel:+918933868207"
+     style="background:#0ea5a4;color:#fff;padding:10px 20px;
+            border-radius:6px;text-decoration:none;font-family:Arial, sans-serif;">
+    📞 Call: +91 8933868207
+  </a></div>
       </div>
 
       <div class="hero-right">
@@ -331,7 +341,11 @@
     <div class="container" style="display:flex;gap:24px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap">
       <div style="max-width:420px">
         <div style="font-weight:800">FixMitraa</div>
-        <div style="margin-top:8px;color:#9fb0bf">Reliable home-services across your city. Call: +91 9236245356/8933868207</div>
+        <div style="margin-top:8px;color:#9fb0bf">Reliable home-services across your city. <BR> 
+  Call: <strong>
+  <a href="tel:+919236245356" style="color:inherit;text-decoration:none">+91 9236245356</a>/
+  <a href="tel:+918933868207" style="color:inherit;text-decoration:none">+91 8933868207</a>
+</strong></div>
       </div>
       <div style="display:flex;gap:24px">
         <div>
@@ -345,16 +359,11 @@
       </div>
     </div>
   </footer>
-  <script>
+ <script>
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById('bookingForm');
   const submitBtn = form.querySelector('button[type="submit"]');
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyt89jBhXuIEpg5t9qCKseTKD_rc5Zsq3hgZBty4cz-Mg1znBDTqkk4FOJ1Uw0bNS6d/exec"; // Replace with your Apps Script URL
-
-  if (localStorage.getItem("fixmitraaSubmitted")) {
-    form.innerHTML = "<p style='color:green;font-weight:600;'>✅ You’ve already submitted your request. Thank you!</p>";
-    return;
-  }
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyt89jBhXuIEpg5t9qCKseTKD_rc5Zsq3hgZBty4cz-Mg1znBDTqkk4FOJ1Uw0bNS6d/exec";
 
   let isSubmitting = false;
 
@@ -369,7 +378,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!emailRegex.test(email)) {
       alert("⚠️ Please enter a valid email address.");
       emailField.focus();
-      return; // Stop submission
+      return;
+    }
+
+    // ----- Validate Address -----
+    const addressField = form.querySelector("#address");
+    const address = addressField.value.trim();
+    if (!address) {
+      alert("⚠️ Please enter your address.");
+      addressField.focus();
+      return;
+    }
+
+    // ----- Validate Description -----
+    const descriptionField = form.querySelector("#description");
+    const description = descriptionField.value.trim();
+    if (!description) {
+      alert("⚠️ Please enter a description.");
+      descriptionField.focus();
+      return;
     }
 
     isSubmitting = true;
@@ -383,18 +410,29 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!response.ok) throw new Error("Server error");
 
       const text = await response.text();
-      alert(text || "✅ Your response has been recorded!");
 
-      if (!text.includes("already submitted")) {
-        localStorage.setItem("fixmitraaSubmitted", "true");
-      }
+      // Show temporary success message
+      const successMsg = document.createElement("p");
+      successMsg.style.color = "green";
+      successMsg.style.fontWeight = "600";
+      successMsg.textContent = text || "✅ Your request has been successfully submitted!";
+      form.prepend(successMsg);
 
-      form.innerHTML = "<p style='color:green;font-weight:600;'>✅ Your request has been successfully submitted!</p>";
+      // Remove message after 5 seconds
+      setTimeout(() => {
+        successMsg.remove();
+      }, 5000);
+
+      // Reset form so user can submit again
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Request Service";
 
     } catch (err) {
       alert("⚠️ Network error: " + err.message);
       submitBtn.disabled = false;
       submitBtn.textContent = "Request Service";
+    } finally {
       isSubmitting = false;
     }
   });
@@ -403,6 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 </body>
 </html>
+
 
 
 
